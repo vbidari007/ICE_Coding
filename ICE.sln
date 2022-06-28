@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.809.10
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ICE", "ICE\ICE.csproj", "{749AC600-8CFB-41F4-9637-D7AC483FB5BB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ICE_WEB_2", "ICE_WEB\ICE_WEB_2.csproj", "{4E6901B0-5DC3-447B-BFFB-B6DD6F36C097}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharedLibrary", "SharedLibrary\SharedLibrary.csproj", "{58A17D03-2A34-4268-80B4-106962CF1372}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,11 +19,24 @@ Global
 		{749AC600-8CFB-41F4-9637-D7AC483FB5BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{749AC600-8CFB-41F4-9637-D7AC483FB5BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{749AC600-8CFB-41F4-9637-D7AC483FB5BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E6901B0-5DC3-447B-BFFB-B6DD6F36C097}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E6901B0-5DC3-447B-BFFB-B6DD6F36C097}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E6901B0-5DC3-447B-BFFB-B6DD6F36C097}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E6901B0-5DC3-447B-BFFB-B6DD6F36C097}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58A17D03-2A34-4268-80B4-106962CF1372}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58A17D03-2A34-4268-80B4-106962CF1372}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58A17D03-2A34-4268-80B4-106962CF1372}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58A17D03-2A34-4268-80B4-106962CF1372}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6B6D6B8F-AD93-4AF8-A351-BC0E52EAC011}
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		Policies = $0
+		$0.DotNetNamingPolicy = $1
+		$1.DirectoryNamespaceAssociation = PrefixedHierarchical
 	EndGlobalSection
 EndGlobal
