@@ -1,0 +1,178 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model SharedLibrary.InstrumentEngineStatus
+
+<div class="text-center">
+    <h1 class="display-4">INSTRUMENT MONITOR</h1>
+    <!--   <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">ASP.NET Core</a>.</p>-->
+
+</div>
+<div>
+   
+    
+        <input type="button" id="stopBtn"
+               value="Stop Engine" style="margin-bottom:25px;color:white;background-color:red" />
+    
+    <input type="button" id="startBtn"
+             value="Start Engine" style="       
+        margin-bottom: 25px;color:white;
+        background-color: green" />
+
+             
+
+
+
+
+
+    <!--  <input type="button" id="loadBtn"
+            value="Load Data" style="padding-left:10px;color:white;background-color:green" />
+        -->
+
+</div>
+<div>
+    <div style="width: 500px">
+        <table id="tblInstruments" cellpadding="0" cellspacing="0" border="1" style="border-collapse:collapse">
+            <thead>
+                <tr>
+
+                    <th>Name</th>
+                    <th>Value</th>
+
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+    
+    <script type="text/javascript">
+        function getData() {
+            $.ajax({
+                type: "POST",
+                url: "/Home/AjaxMethod",
+                data: '{}',
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: OnSuccess,
+                failure: function (response) {
+                    alert(response.d);
+                    console.log("failure")
+                },
+                error: function (response) {
+                    alert(response.d);
+                    console.log("error")
+                }
+            });
+            function OnSuccess(response) {
+                console.log(response)
+                $("#tblInstruments").DataTable(
+                    {
+                        bLengthChange: true,
+                        lengthMenu: [[5, 10, -1], [5, 10, "All"]],
+                        bFilter: true,
+                        bSort: true,
+                        bPaginate: true,
+                        data: response,
+                        bDestroy: true,
+                        columns: [
+                            { 'data': 'name' },
+                            { 'data': 'value' },
+                        ]
+                    });
+            }
+        }
+        $("#startBtn").click(function (e) {
+            e.preventDefault();
+            $.ajax({
+                type: "POST",
+                url: "/Home/StartEngine",
+                data: {
+                    // id: $(this).val(), // < note use of 'this' here
+                   // access_token: $("#access_token").val()
+                },
+                success: function (result) {
+                    $("#startBtn").hide();
+                    $("#stopBtn").show();
+                   // alert('ok');
+                },
+                error: function (result) {
+                    alert('error');
+                }
+            });
+        });
+        $("#stopBtn").click(function (e) {
+            e.preventDefault();
+            $.ajax({
+                type: "POST",
+                url: "/Home/StopEngine",
+                data: {
+                    // id: $(this).val(), // < note use of 'this' here
+                    // access_token: $("#access_token").val()
+                },
+                success: function (result) {
+                    $("#stopBtn").hide();
+                    $("#startBtn").show();
+                   // alert('ok');
+                },
+                error: function (result) {
+                    alert('error');
+                }
+            });
+        });
+
+       /* $("#loadBtn").click(function (e) {
+            e.preventDefault();
+            $.ajax({
+                type: "POST",
+                url: "/Home/AjaxMethod",
+                data: '{}',
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: OnSuccess,
+                failure: function (response) {
+                    alert(response.d);
+                    console.log("failure")
+                },
+                error: function (response) {
+                    alert(response.d);
+                    console.log("error")
+                }
+            });
+            function OnSuccess(response) {
+                console.log(response)
+                $("#tblCustomers").DataTable(
+                    {
+                        bLengthChange: true,
+                        lengthMenu: [[5, 10, -1], [5, 10, "All"]],
+                        bFilter: true,
+                        bSort: true,
+                        bPaginate: true,
+                        data: response,
+                        bDestroy: true,
+                        columns: [
+                            { 'data': 'name' },
+                            { 'data': 'value' },
+                        ]
+                    });
+            };
+
+        });*/
+        $(function () {
+            let model = "@Model";
+            console.log(model)
+            if (model == "Start") {
+                $("#stopBtn").show();
+                $('#startBtn').hide();
+            }
+
+            else {
+                $("#startBtn").show();
+                $('#stopBtn').hide();
+            }
+
+            getData();
+            setInterval(function () { getData() }, 1000)
+
+
+        });</script>
+</div>
