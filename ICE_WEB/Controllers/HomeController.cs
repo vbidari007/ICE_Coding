@@ -40,14 +40,14 @@ namespace ICE_WEB.Controllers
         }
 
         [HttpGet]
-        public  InstrumentEngineStatus GetEngineStatus()
+        public async Task<InstrumentEngineStatus> GetEngineStatus()
         {
             return instruemntEngineStaus;
             // Console.WriteLine("Engine started);
         }
 
         [HttpPost]
-        public IActionResult StartEngine()
+        public  IActionResult StartEngine()
         {
             instruemntEngineStaus = InstrumentEngineStatus.Start;
             Console.WriteLine("Engine started");

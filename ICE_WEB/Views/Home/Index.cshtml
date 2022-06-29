@@ -92,7 +92,11 @@
                 },
                 success: function (result) {
                     $("#startBtn").hide();
-                    $("#stopBtn").show();
+                    setTimeout(
+                        function () {
+                            $("#stopBtn").show();
+                        }, 7000);
+                
                    // alert('ok');
                 },
                 error: function (result) {
@@ -111,7 +115,11 @@
                 },
                 success: function (result) {
                     $("#stopBtn").hide();
-                    $("#startBtn").show();
+                    setTimeout(
+                        function () {
+                            $("#startBtn").show();
+                        }, 7000);
+                 
                    // alert('ok');
                 },
                 error: function (result) {
