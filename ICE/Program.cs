@@ -1,33 +1,33 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
 
-using System.Threading;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using SharedLibrary;
-//using System.Net.Http.Formatting;
-//using Newtonsoft.Json;
+    using System.Threading;
+    using System.Net.Http;
+    using System.Net.Http.Headers;
     using SharedLibrary;
-namespace ICE
-{
-    class Program
+    //using System.Net.Http.Formatting;
+    //using Newtonsoft.Json;
+     
+    namespace ICE
     {
-       
-        static void  Main(string[] args)
+        class Program
         {
-            Console.WriteLine("Hello World!");
-            EngineManager mgr = new EngineManager();
+       
+            static async Task Main(string[] args)
+            {
+                Console.WriteLine("Hello World!");
+                EngineManager mgr = new EngineManager();
 
-             Task.Run(mgr.Execute);
+                 await Task.Run(  () =>   mgr.Execute());
 
            
 
-           // string result = response.Content.ReadAsStringAsync().Result;
-            Console.WriteLine();
+               // string result = response.Content.ReadAsStringAsync().Result;
+                Console.WriteLine();
 
+            }
         }
     }
-}
